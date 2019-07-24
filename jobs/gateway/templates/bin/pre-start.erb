@@ -1,7 +1,11 @@
 #!/bin/bash -e
 
 cp /var/vcap/jobs/gateway/bin/default_gateway /etc/network/if-up.d/0010default_gateway
-cp /var/vcap/jobs/gateway/bin/default_gateway /etc/dhcp/dhclient-exit-hooks.d/0010default_gateway
+cat > /etc/dhcp/dhclient-exit-hooks.d/0010default_gateway <<EOS
+#!/bin/sh
+
+bash /etc/network/if-up.d/0010default_gateway
+EOS
 
 chmod +x /etc/network/if-up.d/0010default_gateway
 chmod +x /etc/dhcp/dhclient-exit-hooks.d/0010default_gateway
