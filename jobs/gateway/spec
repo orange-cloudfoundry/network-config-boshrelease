@@ -1,0 +1,12 @@
+---
+name: gateway
+
+templates:
+  bin/pre-start.erb: bin/pre-start
+  bin/default_gateway.erb: bin/default_gateway
+
+packages: []
+
+properties:
+  networking.gateway.default:
+    description: "Default gateway"

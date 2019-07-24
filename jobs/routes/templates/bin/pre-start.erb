@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+cp /var/vcap/jobs/routes/bin/routes /etc/network/if-up.d/0020routes
+chmod +x /etc/network/if-up.d/0020routes
+/var/vcap/jobs/routes/bin/routes
